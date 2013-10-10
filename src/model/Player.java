@@ -6,7 +6,7 @@ import org.newdawn.slick.geom.Circle;
 import org.newdawn.slick.geom.Line;
 import org.newdawn.slick.geom.Point;
 
-public class Player {
+public class Player implements Drawable {
 	
 	public enum Team {
 		TEAM1(Color.green),
@@ -39,7 +39,8 @@ public class Player {
 		this.angle = angle;
 		this.team = team;
 	}
-
+	
+	@Override
 	public void draw(Graphics g) {
 		Color originalColour = g.getColor();
 		
@@ -48,6 +49,9 @@ public class Player {
 		
 		Circle smallCircle = new Circle(position.getX(), position.getY(),
 				PLAYER_SIZE-3);
+		
+		Circle innerCircle = new Circle(position.getX(), position.getY(),
+				PLAYER_SIZE-20);
 		
 		Line firstLine = new Line(position.getX(), position.getY(),
 				(float)(position.getX() + (PLAYER_SIZE-3)*Math.cos(Math.toRadians(angle-5))),
@@ -69,6 +73,7 @@ public class Player {
 		g.fill(smallCircle);
 		g.setColor(Color.black);
 		g.draw(smallCircle);
+		g.draw(innerCircle);
 		g.draw(firstLine);
 		g.draw(secondLine);
 		

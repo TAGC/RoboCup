@@ -10,7 +10,7 @@ import view.PlayScreen;
 
 public class RoboCup extends StateBasedGame {
 	
-	public static final int WIN_WIDTH = 1000;
+	public static final int WIN_WIDTH = 600;
 	public static final int WIN_HEIGHT = 600;
 	
 	private static final String TITLE = "RoboCup";
@@ -43,5 +43,4 @@ public class RoboCup extends StateBasedGame {
 		getState(PLAY_SCREEN_ID).init(container, this);
 		enterState(MENU_SCREEN_ID);
 	}
-
 }
